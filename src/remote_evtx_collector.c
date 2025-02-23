@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <ntstatus.h>
 
-#pragma comment(lib, "wevtapi.lib")
 
 LPCWSTR ConvertToLPCWSTR(const char* str) {
     int size_needed = MultiByteToWideChar(CP_UTF8, 0, str, -1, NULL, 0);
