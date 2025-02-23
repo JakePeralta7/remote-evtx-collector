@@ -20,7 +20,9 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Compile 64bit Binary
-      run: gcc .\src\remote_evtx_collector.c -o .\output\remote_evtx_collector_x64.exe -s -m64 -lwevtapi
+      run: |
+        gcc .\src\remote_evtx_collector.c -o .\output\remote_evtx_collector_x64.exe -s -m64 -lwevtapi
+        cl .\src\remote_evtx_collector.c /link /out:.\output\cl_remote_evtx_collector_x64.exe wevtapi.lib
 
     - name: Remove Placeholder
       run: Remove-Item output/.gitkeep
