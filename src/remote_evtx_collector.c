@@ -32,7 +32,7 @@ NTSTATUS ExportEventLog(LPCWSTR remoteComputer, LPCWSTR channelName, LPCWSTR out
         goto cleanup;
     }
 
-    printf("[+] Exporting event log\n");
+    printf("[+] Exporting event log to %S\n", outputFileName);
     if (!EvtExportLog(hSession, channelName, NULL, outputFileName, EvtExportLogChannelPath)) {
         printf("Failed to export event log, error %d", GetLastError());
         status = STATUS_UNSUCCESSFUL;
